@@ -1,6 +1,7 @@
 //Module dependencies
 const express = require('express');
 const logger = require('morgan');
+const storeRoutes = require('./router/store')
 
 //config
 const app = express();
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //starter
 app.listen(app.get('port'), () => {
-    console.log(`Server started on port ${app.get('port')}`);
+  console.log(`Server started on port ${app.get('port')}`);
 });
 
 /**
@@ -24,17 +25,19 @@ app.listen(app.get('port'), () => {
  */
 
 function normalizePort(val) {
-    var port = parseInt(val, 10);
-  
-    if (isNaN(port)) {
-      // named pipe
-      return val;
-    }
-  
-    if (port >= 0) {
-      // port number
-      return port;
-    }
-  
-    return false;
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
   }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+app.use('/store', storeRoutes)
