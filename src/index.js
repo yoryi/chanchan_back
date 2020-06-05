@@ -11,6 +11,7 @@ require('dotenv').config()
 //IMPORTACION DE RUTAS
 const USER = require('./router/user');
 const CALIFICACION = require('./router/calificacion');
+const PUBLICACIONES = require('./router/post')
 
 
 //VARIABLES
@@ -35,6 +36,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //RUTAS O REST API
 app.use('/', USER);
 app.use('/calificacion', CALIFICACION);
+app.use('/post', PUBLICACIONES);
+
 
 
 //PUERTO DEL SERVIDOR
