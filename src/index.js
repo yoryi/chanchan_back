@@ -1,7 +1,7 @@
 //Module dependencies
 const express = require('express');
 const logger = require('morgan');
-const storeRoutes = require('./router/store')
+const postRoutes = require('./router/post')
 
 //config
 const app = express();
@@ -40,4 +40,4 @@ function normalizePort(val) {
   return false;
 }
 
-app.use('/store', storeRoutes)
+app.use('/post', postRoutes)
